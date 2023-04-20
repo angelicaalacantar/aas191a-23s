@@ -18,7 +18,7 @@ function addMarker(lat,lng,title,message){
 
     addMarker(37.005,-121.573,'Gilroy, California, USA','Home :)')
     addMarker(10.315,123.885,'Cebu, The Philippines','2007')
-    addMarker(21.161,-86.851,'Cancun, Mexico','random location')
+    addMarker(21.161,-86.851,'Cancun, Mexico','2018')
     addMarker(1.352,103.819,'Singapore','2022')
     addMarker(37.566,126.977,'Seoul, South Korea','2022')
     addMarker(41.893, 12.468,'Rome, Italy','2019')
