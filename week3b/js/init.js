@@ -17,11 +17,16 @@ function addMarker(lat,lng,title,message){
 
 fetch("map.geojson")
     .then(response => {
-        return response.json();
+        return response.json()
     })
     .then(data =>{
         // Basic Leaflet method to add GeoJSON data
-        L.geoJSON(data).addTo(map)
-    });
-
+        L.geoJSON(data, {
+                pointToLayer: (feature, latlng) => { 
+                    return L.circleMarker(latlng, {color: feature.properties.color})
+                }
+            }).bindPopup(layer => {
+                return layer.feature.properties.place;
+            }).addTo(map);
+    })
     
