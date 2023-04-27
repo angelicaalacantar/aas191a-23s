@@ -5,10 +5,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-addMarker(37,-122,'home','home land!')
-addMarker(32,-118,'work','where i work land!')
-addMarker(39,-119,'location 1','random location')
-addMarker(36,-120,'location 2','another random location')
+addMarker(34.752, -118.252,'Antelope Valley','Poppy superbloom!')
+addMarker(37.882, -119.449,'Yosemite National Park','Closest thing to Yellowstone')
+addMarker(41.0141, -121.651,'Burney Falls','Incredible waterfall')
+addMarker(38.0123, -123.000,'Point Reyes','Amazing views and trails')
+addMarker(37.0846, -121.792, 'Uvas Canyon County Park','Close to home and beautiful hike')
 
 // create a function to add markers
 function addMarker(lat,lng,title,message){
@@ -18,13 +19,31 @@ function addMarker(lat,lng,title,message){
 }
 
 function createButtons(lat,lng,title){
-    const newButton = document.createElement("button"); // adds a new button
-    newButton.id = "button"+title; // gives the button a unique id
-    newButton.innerHTML = title; // gives the button a title
-    newButton.setAttribute("lat",lat); // sets the latitude 
-    newButton.setAttribute("lng",lng); // sets the longitude 
+    const newButton = document.createElement("button"); 
+    newButton.id = "button"+title; 
+    newButton.innerHTML = title; 
+    newButton.setAttribute("lat",lat); 
+    newButton.setAttribute("lng",lng); 
     newButton.addEventListener('click', function(){
-        map.flyTo([lat,lng]); //this is the flyTo from Leaflet
+        map.flyTo([lat,lng]); 
     })
-    document.getElementById("contents").appendChild(newButton); //this adds the button to our page.
+    document.getElementById("contents").appendChild(newButton);
 }
+
+createButtons(34.752, -118.252,'Antelope Valley')
+createButtons(37.882, -119.449,'Yosemite National Park')
+createButtons(41.0141, -121.651,'Burney Falls')
+createButtons(38.0123, -123.000,'Point Reyes')
+createButtons(37.0846, -121.792, 'Uvas Canyon County Park')
+
+    // event listener
+const btn = document.querySelector("button");
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+btn.addEventListener("click", () => {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+})
