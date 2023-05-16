@@ -11,8 +11,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function addMarker(data){
     // console.log(data)
     // these are the names of our lat/long fields in the google sheets:
-    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['Where did you get vaccinated?']}</h2> <h3>${data['Have you been vaccinated?']}</h3>`)
-    createButtons(data.lat,data.lng,data['Where did you get vaccinated?'])
+    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['Have you ever sought treatment for mental health concerns?']}</h2> <h3>${data['Have you been vaccinated?']}</h3>`)
+    createButtons(data.lat,data.lng,data['Where did you receive care?'])
     return
 }
 
@@ -29,8 +29,7 @@ function createButtons(lat,lng,title){
     spaceForButtons.appendChild(newButton);//this adds the button to our page.
 }
 
-const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZaAwxlqC5mUzlbGkKu6uGBLC4yTkmJW1_tPdcUsgTSYypd87L-jh2VgnsEuvKfdj7t-17qdnwIV9U/pub?output=csv"
-
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR1Re4FCLu-jT9wjL8bawR0DRFdhLUsHeRVqx8D6KXMJgARQLbzw7fc-0TL0462XMXBiAsIcLT7G9V9/pub?output=csv"
 function loadData(url){
     Papa.parse(url, {
         header: true,
